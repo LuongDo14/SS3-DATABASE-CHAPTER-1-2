@@ -1,0 +1,29 @@
+CREATE DATABASE Quanlybanhang;
+
+USE QuanLyBanHang;
+
+CREATE TABLE Cutomer (
+cID int NOT NULL PRIMARY KEY,
+cName VARCHAR(30),
+cAge VARCHAR(10)
+);
+CREATE TABLE Orders (
+oID int NOT NULL PRIMARY KEY ,
+cID int ,
+oDate datetime,
+FOREIGN KEY(cID) REFERENCES cutomer(cID),
+oTotalPrice VARCHAR(45)
+);
+CREATE TABLE OrderDetail (
+oID int, 
+pID int,
+odQTY VARCHAR(30),
+PRIMARY KEY (oID,pID),
+FOREIGN KEY (oID) REFERENCES orders(oID),
+FOREIGN KEY (PID) REFERENCES product(pID)
+);
+CREATE TABLE Product (
+pID int NOT NULL PRIMARY KEY,
+pName VARCHAR(30),
+pQTY VARCHAR(30)
+);
